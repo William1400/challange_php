@@ -2,9 +2,10 @@
 
 class invoiceController
 {
-
+    
     function __construct()
     {
+        
     }
 
     // Display invoice view in browser.

@@ -5,8 +5,10 @@
  */
 class HomeController
 {
-
-    function __construct() {}
+    private $pdo;
+    function __construct($pdo) {
+        $this->pdo = $pdo;
+    }
 
     // Display home view in browser.
     function renderView()

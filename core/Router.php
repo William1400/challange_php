@@ -11,11 +11,11 @@ include_once('../controllers/InvoiceController.php');
 class Router
 {
 
-    function __construct()
+    function __construct($pdo)
     {
 
         // Instanciate controller objects.
-        $homeController = new HomeController();
+        $homeController = new HomeController($pdo);
         $loginController = new LoginController();
         $invoicesController = new invoiceController();
 

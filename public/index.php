@@ -1,4 +1,4 @@
-<?php include_once('../core/Application.php')  ?>
+<?php include_once('../core/Application.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
