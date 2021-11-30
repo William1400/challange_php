@@ -27,7 +27,7 @@
                         <a class="nav-link" href="login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Invoices">Invoices</a>
+                        <a class="nav-link" href="invoices">Invoices</a>
                     </li>
                 </ul>
             </div>
