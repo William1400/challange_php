@@ -6,9 +6,7 @@
 class HomeController
 {
 
-    function __construct()
-    {
-    }
+    function __construct() {}
 
     // Display home view in browser.
     function renderView()
