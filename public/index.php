@@ -12,5 +12,6 @@
     <?php 
     $app = new Application();
     ?>
+    
 </body>
 </html>
