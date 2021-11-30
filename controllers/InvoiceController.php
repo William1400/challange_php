@@ -1,16 +1,13 @@
 <?php
 
-/**
- * Controller of home page.
- */
-class HomeController
+class invoiceController
 {
 
     function __construct()
     {
     }
 
-    // Display home view in browser.
+    // Display invoice view in browser.
     function renderView()
     {
 
@@ -19,11 +16,9 @@ class HomeController
         $layout = ob_get_clean();
 
         ob_start();
-        include_once('../views/home.php');
+        include_once('../views/invoices.php');
         $content = ob_get_clean();
 
         echo str_replace('{{content}}', $content, $layout);
     }
-    
-    // add new method(function) for post method.
 }

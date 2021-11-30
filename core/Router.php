@@ -1,26 +1,31 @@
-<?php 
+<?php
 
 // Include controller files.
 include_once('../controllers/HomeController.php');
 include_once('../controllers/LoginController.php');
+include_once('../controllers/InvoiceController.php');
 
 /**
  * Retrieve url from browser and call appropriate method from appropriate controller.
  */
-class Router {
-    
-    function __construct() {
+class Router
+{
+
+    function __construct()
+    {
 
         // Instanciate controller objects.
         $homeController = new HomeController();
         $loginController = new LoginController();
+        $invoicesController = new invoiceController();
 
         // Link appropriate controller method to each url.
         $routes = [
 
             'GET' => [
                 'home' => [$homeController, 'renderView'], 
-                'login' => [$loginController, 'renderView']
+                'login' => [$loginController, 'renderView'],
+                'invoices' => [$invoicesController, 'renderView']
             ],
 
             'POST' => []
@@ -40,4 +45,3 @@ class Router {
         call_user_func($routes[$method][$controller_url]);
     }   
 }
-
