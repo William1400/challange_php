@@ -17,10 +17,17 @@ class Router {
 
         // Link appropriate controller method to each url.
         $routes = [
-            'home' => [$homeController, 'renderView'],
-            'login' => [$loginController, 'renderView']
-        ];
 
+            'GET' => [
+                'home' => [$homeController, 'renderView'], 
+                'login' => [$loginController, 'renderView']
+            ],
+
+            'POST' => []
+        ];
+        
+        $method =  $_SERVER['REQUEST_METHOD']; 
+      
         //  Get url from browser.
         $url = explode('/', $_SERVER['REQUEST_URI']);
         if ($url[2] == '') {
@@ -30,7 +37,7 @@ class Router {
         }
 
         // Call appropriate controller method.
-        call_user_func($routes[$controller_url]);
+        call_user_func($routes[$method][$controller_url]);
     }   
 }
 

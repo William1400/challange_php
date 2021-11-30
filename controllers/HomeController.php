@@ -20,4 +20,6 @@ class HomeController {
 
         echo str_replace('{{content}}', $content, $layout);
     }
+    
+    // add new method(function) for post method.
 }
