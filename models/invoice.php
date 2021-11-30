@@ -13,8 +13,16 @@ class Invoice
     }
 
     // List of all invoices //
-    public function getInvoices()
+    public function getAllInvoices()
     {
-        return $this->connexion->query("SELECT * FROM invoices")->fetchAll();
+        return $this->connexion->query("SELECT * FROM invoices ORDER BY invoice_date ASC")->fetchAll();
     }
+
+    /* public function getLastFiveInvoices() {
+        return $this->connexion->query('SELECT ')
+    } */
+
+    /*   public function getInvoicesCompanyClients() {
+        return $this->connexion->query("SELECT ")
+    } */
 }
