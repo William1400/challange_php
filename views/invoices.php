@@ -19,8 +19,8 @@ echo "<table border='1'>
 </tr>";
 foreach ($list as $test) {
     echo "<tr>";
-    echo "<td>" . $test['id_invoices'] . "</td>";
-    echo "<td>" . $test['invoice_date'] . '</a>' . "</td>";
-    echo "<td>" . $test['invoice_numb'] . "</td>";
+    echo "<td>" . $test['id'] . "</td>";
+    echo "<td>" . $test['date'] . '</a>' . "</td>";
+    echo "<td>" . $test['number'] . "</td>";
     echo "</tr>";
 }
