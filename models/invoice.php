@@ -15,7 +15,7 @@ class Invoice
     // List of all invoices //
     public function getAllInvoices()
     {
-        return $this->connexion->query("SELECT * FROM invoices ORDER BY date ASC")->fetchAll();
+        return $this->connexion->query("SELECT * FROM invoices ORDER BY date DESC")->fetchAll();
     }
 
     /* public function getLastFiveInvoices() {
