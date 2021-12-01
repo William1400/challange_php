@@ -4,6 +4,7 @@
 include_once('../controllers/HomeController.php');
 include_once('../controllers/LoginController.php');
 include_once('../controllers/InvoiceController.php');
+include_once('../controllers/ContactController.php');
 
 /**
  * Retrieve url from browser and call appropriate method from appropriate controller.
@@ -16,16 +17,19 @@ class Router
 
         // Instanciate controller objects.
         $homeController = new HomeController($pdo);
-        $loginController = new LoginController();
-        $invoicesController = new invoiceController();
+        $loginController = new LoginController($pdo);
+        $invoicesController = new InvoiceController($pdo);
+        $contactController = new  ContactController($pdo);
 
         // Link appropriate controller method to each url.
         $routes = [
 
             'GET' => [
+
                 'home' => [$homeController, 'renderView'], 
                 'login' => [$loginController, 'renderView'],
-                'invoices' => [$invoicesController, 'renderView']
+                'invoices' => [$invoicesController, 'renderView'],
+                'contact' => [$contactController, 'renderView']
             ],
 
             'POST' => []

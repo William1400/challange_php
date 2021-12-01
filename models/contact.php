@@ -12,8 +12,9 @@ class Contact
     }
 
     // List of all invoices //
-    public function getAllInvoices()
+    public function getAllContact()
     {
-        return $this->connexion->query('SELECT * FROM peopoles, compagnies ORDER BY name ASC, firstname ASC')->fetchAll();
+        return $this->connexion->query('SELECT * FROM peopoles')->fetchAll();
+       
     }
-}
+} 

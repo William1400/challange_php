@@ -19,7 +19,7 @@ class ContactController
         $layout = ob_get_clean();
 
         ob_start();
-        include_once('../views/home.php');
+        include_once('../views/contact.php');
         $content = ob_get_clean();
 
         echo str_replace('{{content}}', $content, $layout);
