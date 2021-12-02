@@ -1,6 +1,5 @@
 <?php
 include_once('../models/PeopleModel.php');
-include_once('../models/CompanyModel.php');
 include_once('../views/ContactsView.php');
 
 class ContactsController {
@@ -13,14 +12,15 @@ class ContactsController {
     }
 
     // Display contacts view in browser.
-    function renderContactsView() {
+    public function renderContactsView($data) {
 
-        $dbPeoples = $this->pdo->query('SELECT * FROM peoples')->fetchAll();
+        $dbPeoples = $this->pdo->query('SELECT * FROM peoples ORDER BY firstname ASC')->fetchAll();
         $peoples = [];
         foreach($dbPeoples as $dbPeople) {
             
             $people = new PeopleModel(
                 
+                $this->pdo,
                 $dbPeople['id'], 
                 $dbPeople['firstname'], 
                 $dbPeople['lastname'], 
@@ -32,26 +32,9 @@ class ContactsController {
             $peoples[] = $people;
         }
 
-        $dbCompanies = $this->pdo->query('SELECT * FROM companies')->fetchAll();
-        $companies = [];
-        foreach ($dbCompanies as $dbCompany) {
-
-            $company = new CompanyModel(
-
-                $dbCompany['id'],
-                $dbCompany['name'],
-                $dbCompany['country'],
-                $dbCompany['VAT_number'],
-                $dbCompany['type_id'],
-            );
-
-            $companies[] = $company;
-        }
-
-        $contactsView = new ContactsView($peoples, $companies);
+        $contactsView = new ContactsView($peoples);
         
         $contactsView->render();
-
     }
 
 }

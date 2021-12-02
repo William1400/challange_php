@@ -11,7 +11,7 @@ class HomeController
     }
 
     // Display home view in browser.
-    function renderHomeView()
+    function renderHomeView($data)
     {
 
         ob_start();

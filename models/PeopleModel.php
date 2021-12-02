@@ -2,6 +2,8 @@
 
 class PeopleModel {
 
+    private $pdo;
+
     private $id;
     private $firstName;
     private $lastName;
@@ -9,7 +11,9 @@ class PeopleModel {
     private $phoneNumber;
     private $companyId;
 
-    function __construct($id, $firstName, $lastName, $email, $phoneNumber, $companyId) {
+    function __construct($pdo, $id, $firstName, $lastName, $email, $phoneNumber, $companyId) {
+
+        $this->pdo = $pdo;
 
         $this->id = $id;
         $this->firstName = $firstName;
@@ -47,5 +51,36 @@ class PeopleModel {
     public function getCompanyId() {
 
         return $this->companyId;
+    }
+
+    public function getCompanyName() {
+
+        $dbcompanyName = $this->pdo->query("SELECT name FROM companies WHERE id = {$this->companyId}")->fetch();
+        return $dbcompanyName['name'];
+    }
+
+    public function getInvoices() {
+
+        $invoices = [];
+
+        $dbInvoices =  $this->pdo->query("SELECT * FROM invoices WHERE people_id = {$this->id}")->fetchAll();
+
+        foreach ($dbInvoices as $dbInvoice) {
+
+            $invoice = new InvoiceModel(
+
+                $this->pdo,
+
+                $dbInvoice['id'],
+                $dbInvoice['number'],
+                $dbInvoice['date'],
+                $dbInvoice['company_id'],
+                $dbInvoice['people_id']
+            );
+
+            $invoices[] = $invoice;
+        }
+
+        return $invoices;
     }
 }

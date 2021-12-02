@@ -24,8 +24,11 @@
                         <a class="nav-link" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacts">Contacts</a>
+                        <a class="nav-link" href="companies">Companies</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts">Contacts</a>
+                    </li> 
                 </ul>
             </div>
         </div>

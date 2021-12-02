@@ -1,14 +1,15 @@
 <?php
 
-class ContactsView {
+class CompaniesView {
 
-    private $peoples;
+    private $companies;
 
-    function __construct($peoples)
-    {   
-        $this->peoples = $peoples;
+    function __construct($companies) 
+    {
+        $this->companies = $companies;
     }
 
+    
     private function getLayout() {
 
         ob_start();
@@ -18,22 +19,21 @@ class ContactsView {
 
     private function getContent() {
 
-        $content = '<h3>Peoples</h3>';
-        
+        $content = '<h3>Companies</h3>';
+
         $content = $content . "<table class='table table-striped table-hover'>";
-        
-        foreach ($this->peoples as $people) {
+
+        foreach ($this->companies as $company) {
 
             $content = $content . "
-                <tr class='clickable'>
-                    <th><a href='contact?id={$people->getId()}'>{$people->getFirstName()}</a></th>
-                    <th>{$people->getLastname()}</th>
+                <tr>
+                    <th>{$company->getName()}</th>
+                    <th>{$company->getCountry()}</th>
                 </tr>
             ";
             
         }
         $content = $content . "</table>";
-
 
         return $content;
     }
@@ -42,5 +42,4 @@ class ContactsView {
 
         echo str_replace('{{content}}', $this->getContent(), $this->getLayout());
     }
-
 }
